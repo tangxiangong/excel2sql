@@ -1,0 +1,15 @@
+[package]
+authors = ["tangxiangong <tangxiangong@gmail.com>"]
+name = "excel2sql"
+version = "0.1.0"
+edition = "2024"
+license = "MIT OR Apache-2.0"
+description = "Convert Excel to SQL"
+repository = "https://github.com/tangxiangong/excel2sql"
+
+[dependencies]
+calamine = { version = "0.31", features = ["dates", "picture"] }
+chrono = "0.4"
+regex = "1.12.2"
+sqlx = { version = "0.8.6", features = ["runtime-tokio", "tls-rustls", "any"] }
+thiserror = "2"
