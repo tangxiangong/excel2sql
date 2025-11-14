@@ -7,9 +7,23 @@ license = "MIT OR Apache-2.0"
 description = "Convert Excel to SQL"
 repository = "https://github.com/tangxiangong/excel2sql"
 
+[[bin]]
+name = "excel2sql"
+path = "src/bin/main.rs"
+required-features = ["cli"]
+
+[features]
+default = []
+cli = ["dep:clap", "dep:tokio"]
+
 [dependencies]
 calamine = { version = "0.31", features = ["dates", "picture"] }
 chrono = "0.4"
+clap = { version = "4.5", features = ["derive"], optional = true }
 regex = "1.12.2"
 sqlx = { version = "0.8.6", features = ["runtime-tokio", "tls-rustls", "any"] }
 thiserror = "2"
+tokio = { version = "1", features = [
+    "rt-multi-thread",
+    "macros",
+], optional = true }
